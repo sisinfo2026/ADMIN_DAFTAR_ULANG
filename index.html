@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - PP. Dzunnuroin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            color: #764ba2;
+            font-size: 1.3em;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .card h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-admin {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .url-input {
+            display: none;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.5em;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .kantin-section {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .mudir-section {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            header h2 {
+                font-size: 1.1em;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕌 PP. DZUNNUROIN</h1>
+            <h2>Sistem Daftar Ulang Santri Lama</h2>
+            <p>Tahun Ajaran 2026-2027</p>
+        </header>
+
+        <h2 class="section-title">📦 ADMIN TIM KANTIN</h2>
+        <div class="dashboard-grid kantin-section">
+            <div class="card" onclick="navigateToSystem('stok')">
+                <div class="card-icon">📦</div>
+                <h3>Sistem Penanganan Stok Perlengkapan Santri</h3>
+                <p>Kelola inventaris dan stok perlengkapan santri seperti seragam, alat tulis, perlengkapan kamar, dan kebutuhan santri lainnya.</p>
+                <span class="card-admin">👤 Admin: Tim Kantin</span>
+                
+                <div class="url-input">
+                    <label>🔗 URL Script WebApp:</label>
+                    <input type="text" id="url-stok" placeholder="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" />
+                </div>
+            </div>
+
+            <div class="card" onclick="navigateToSystem('pembayaran-perlengkapan')">
+                <div class="card-icon">💰</div>
+                <h3>Sistem Penanganan Pembayaran & Penerimaan Pesanan Perlengkapan</h3>
+                <p>Proses pembayaran perlengkapan santri, konfirmasi pesanan, dan verifikasi transaksi pembelian perlengkapan.</p>
+                <span class="card-admin">👤 Admin: Tim Kantin</span>
+                
+                <div class="url-input">
+                    <label>🔗 URL Script WebApp:</label>
+                    <input type="text" id="url-pembayaran-perlengkapan" placeholder="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" />
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">🎓 ADMIN MUDIR JENJANG</h2>
+        <div class="dashboard-grid mudir-section">
+            <div class="card" onclick="navigateToSystem('daftar-ulang')">
+                <div class="card-icon">📋</div>
+                <h3>Sistem Penanganan Pemesanan & Daftar Ulang Santri</h3>
+                <p>Kelola proses pendaftaran ulang santri lama, verifikasi data santri, dan proses pemesanan per jenjang (Ula, Wustha, Ulya).</p>
+                <span class="card-admin">👤 Admin: Mudir Ula, Wustha & Ulya</span>
+                
+                <div class="url-input">
+                    <label>🔗 URL Script WebApp:</label>
+                    <input type="text" id="url-daftar-ulang" placeholder="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" />
+                </div>
+            </div>
+
+            <div class="card" onclick="navigateToSystem('pembayaran-daftar-ulang')">
+                <div class="card-icon">💳</div>
+                <h3>Sistem Pembayaran Daftar Ulang</h3>
+                <p>Proses pembayaran daftar ulang santri, verifikasi bukti transfer, dan pencatatan pemasukan keuangan pondok.</p>
+                <span class="card-admin">👤 Admin: Bendahara Pemasukan & Staf</span>
+                
+                <div class="url-input">
+                    <label>🔗 URL Script WebApp:</label>
+                    <input type="text" id="url-pembayaran-daftar-ulang" placeholder="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec" />
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Dashboard Admin PP. Dzunnuroin</strong></p>
+            <p>Sistem Terintegrasi Daftar Ulang Santri Lama TA 2026-2027</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2025 - Dikembangkan untuk PP. Dzunnuroin</p>
+        </footer>
+    </div>
+
+    <script>
+        // KONFIGURASI URL - PASTE URL GOOGLE APPS SCRIPT DI SINI
+        const WEBAPP_URLS = {
+            'stok': '', // Paste URL untuk Sistem Stok Perlengkapan
+            'pembayaran-perlengkapan': '', // Paste URL untuk Sistem Pembayaran Perlengkapan
+            'daftar-ulang': '', // Paste URL untuk Sistem Daftar Ulang Santri
+            'pembayaran-daftar-ulang': '' // Paste URL untuk Sistem Pembayaran Daftar Ulang
+        };
+
+        function navigateToSystem(system) {
+            const url = WEBAPP_URLS[system];
+            
+            if (url && url.trim() !== '') {
+                window.open(url, '_blank');
+            } else {
+                alert('⚠️ URL Script WebApp belum dikonfigurasi!\n\nSilakan hubungi administrator untuk mengatur URL sistem ini.');
+            }
+        }
+    </script>
+</body>
+</html>
