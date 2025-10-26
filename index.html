@@ -127,10 +127,6 @@
             font-weight: bold;
         }
 
-        .url-input {
-            display: none;
-        }
-
         .section-title {
             color: white;
             font-size: 1.5em;
@@ -150,38 +146,6 @@
             border-radius: 10px;
             backdrop-filter: blur(10px);
         }
-
-        .kantin-section {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .mudir-section {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5em;
-            }
-            
-            header h1 img {
-                height: 45px;
-            }
-
-            header h2 {
-                font-size: 1.1em;
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -196,56 +160,36 @@
         </header>
 
         <h2 class="section-title">📦 ADMIN TIM KANTIN</h2>
-        <div class="dashboard-grid kantin-section">
+        <div class="dashboard-grid">
             <div class="card" onclick="navigateToSystem('stok')">
                 <div class="card-icon">📦</div>
-                <h3>Sistem Penanganan Stok Perlengkapan Santri</h3>
-                <p>Kelola stok perlengkapan santri seperti kitab, modul, alat tulis, dan kebutuhan santri lainnya.</p>
+                <h3>Sistem Stok Perlengkapan</h3>
+                <p>Kelola stok perlengkapan santri seperti kitab, modul, alat tulis, dan kebutuhan lainnya.</p>
                 <span class="card-admin">👤 Admin: Tim Kantin</span>
-                
-                <div class="url-input">
-                    <label>🔗 URL Script WebApp:</label>
-                    <input type="text" id="url-stok" placeholder="https://script.google.com/macros/s/AKfycbzolCcYiOisqmoepj3JBwcDqkXDQtYV0xIT8yJblIGGDGeua0Mx1sS00CW3SmfA91QrQA/exec" />
-                </div>
             </div>
 
-            <div class="card" onclick="navigateToSystem('pembayaran-perlengkapan')">
+            <div class="card" onclick="navigateToSystem('pembayaranPerlengkapan')">
                 <div class="card-icon">💰</div>
-                <h3>Sistem Penanganan Pembayaran & Penerimaan Pesanan Perlengkapan</h3>
-                <p>Kelola pembayaran pesanan perlengkapan santri dan penerimaan pesanan perlengkapan Skepada santri.</p>
+                <h3>Pembayaran & Penerimaan Perlengkapan</h3>
+                <p>Kelola pembayaran dan penerimaan perlengkapan santri.</p>
                 <span class="card-admin">👤 Admin: Tim Kantin</span>
-                
-                <div class="url-input">
-                    <label>🔗 URL Script WebApp:</label>
-                    <input type="text" id="url-pembayaran-perlengkapan" placeholder="https://script.google.com/macros/s/AKfycbyDydr8yVmGKw44Naa2hDpD-XNM5h78JRVfixonnU5Wx1YPE1FtwBWMzIca79LvV918/exec" />
-                </div>
             </div>
         </div>
 
-        <h2 class="section-title">🎓 ADMIN MUDIR JENJANG DAN BENDAHARA</h2>
-        <div class="dashboard-grid mudir-section">
-            <div class="card" onclick="navigateToSystem('daftar-ulang')">
+        <h2 class="section-title">🎓 ADMIN MUDIR & BENDAHARA</h2>
+        <div class="dashboard-grid">
+            <div class="card" onclick="navigateToSystem('dashboardDaftarUlang')">
                 <div class="card-icon">📋</div>
-                <h3>Sistem Penanganan Pesanan & Daftar Ulang Santri</h3>
-                <p>Kelola data daftar dlang santri lama, dan data pesanan perlengkapan santri per jenjang (Ula, Wustha, Ulya).</p>
-                <span class="card-admin">👤 Admin: Mudir Ula, Wustha & Ulya</span>
-                
-                <div class="url-input">
-                    <label>🔗 URL Script WebApp:</label>
-                    <input type="text" id="url-daftar-ulang" placeholder="https://script.google.com/macros/s/AKfycbwYxfFaBIig7adM2P-679dC1qbEPE3G0P9-PGTTfB5DT58Pewqw2s-rs7MDIQu6H6_N3Q/exec" />
-                </div>
+                <h3>Dashboard Daftar Ulang</h3>
+                <p>Lihat dan kelola data daftar ulang santri per jenjang.</p>
+                <span class="card-admin">👤 Admin: Mudir Ula, Wustha, Ulya</span>
             </div>
 
-            <div class="card" onclick="navigateToSystem('pembayaran-daftar-ulang')">
+            <div class="card" onclick="navigateToSystem('pembayaranDaftarUlang')">
                 <div class="card-icon">💳</div>
-                <h3>Sistem Pembayaran Daftar Ulang</h3>
-                <p>Kelola pembayaran daftar ulang santri, dan pencatatan pemasukan dari daftar ulang.</p>
-                <span class="card-admin">👤 Admin: Bendahara Pemasukan & Staf</span>
-                
-                <div class="url-input">
-                    <label>🔗 URL Script WebApp:</label>
-                    <input type="text" id="url-pembayaran-daftar-ulang" placeholder="https://script.google.com/macros/s/AKfycbwlA2ppCPl9n6jxX3isZsw1pk_F259cRPpZQYPYDQkyglWHk36DfnwFcoAfkb4sd9V_/exec" />
-                </div>
+                <h3>Pembayaran Daftar Ulang</h3>
+                <p>Kelola dan catat pembayaran daftar ulang santri lama.</p>
+                <span class="card-admin">👤 Admin: Bendahara</span>
             </div>
         </div>
 
@@ -257,21 +201,19 @@
     </div>
 
     <script>
-        // KONFIGURASI URL - PASTE URL GOOGLE APPS SCRIPT DI SINI
         const WEBAPP_URLS = {
-            'stok': '', // Paste URL untuk Sistem Stok Perlengkapan
-            'pembayaran-perlengkapan': '', // Paste URL untuk Sistem Pembayaran Perlengkapan
-            'daftar-ulang': '', // Paste URL untuk Sistem Daftar Ulang Santri
-            'pembayaran-daftar-ulang': '' // Paste URL untuk Sistem Pembayaran Daftar Ulang
+            stok: "https://script.google.com/macros/s/AKfycbzolCcYiOisqmoepj3JBwcDqkXDQtYV0xIT8yJblIGGDGeua0Mx1sS00CW3SmfA91QrQA/exec",
+            pembayaranPerlengkapan: "https://script.google.com/macros/s/AKfycbyDydr8yVmGKw44Naa2hDpDXNM5h78JRVfixonnU5Wx1YPE1FtwBWMzIca79LvV918/exec",
+            dashboardDaftarUlang: "https://script.google.com/macros/s/AKfycbwYxfFaBIig7adM2P-679dC1qbEPE3G0P9-PGTTfB5DT58Pewqw2s-rs7MDIQu6H6_N3Q/exec",
+            pembayaranDaftarUlang: "https://script.google.com/macros/s/AKfycbwlA2ppCPl9n6jxX3isZsw1pk_F259cRPpZQYPYDQkyglWHk36DfnwFcoAfkb4sd9V_/exec"
         };
 
         function navigateToSystem(system) {
             const url = WEBAPP_URLS[system];
-            
-            if (url && url.trim() !== '') {
-                window.open(url, '_blank');
+            if (url && url.trim() !== "") {
+                window.open(url, "_blank");
             } else {
-                alert('⚠️ URL Script WebApp belum dikonfigurasi!\n\nSilakan hubungi administrator untuk mengatur URL sistem ini.');
+                alert("⚠️ URL belum dikonfigurasi untuk sistem ini.");
             }
         }
     </script>
